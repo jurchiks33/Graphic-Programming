@@ -18,6 +18,7 @@ function draw()
     translate(width/2, height/2);
     ellipse(0, 0, 350, 350);
 
+    // seconds
     push();
     strokeWeight(secWidth);
     stroke(200, 0, 0);
@@ -25,4 +26,20 @@ function draw()
     rotate(radians(secAngle));
     line(0, 0, 0, -secLength);
     pop();
+
+    //minutes
+    push();
+    strokeWeight(minWidth);
+    var minAngle = map(minute(), 0, 60, 0, 360);
+    rotate(radians(minAngle));
+    line(0, 0, 0, -minLenght);
+    pop();
+
+        //minutes
+        push();
+        strokeWeight(minWidth);
+        var minAngle = map(minute(), 0, 60, 0, 360);
+        rotate(radians(minAngle));
+        line(0, 0, 0, -minLenght);
+        pop();
 }
