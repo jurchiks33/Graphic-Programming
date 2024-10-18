@@ -51,27 +51,36 @@ function draw()
     pop();
     pop();
 
-    //minutes
+    //hours
     push();
-    strokeWeight(hourWidth);
-    var hourAngle = map(hour(), 0, 12, 0, 360);
-    rotate(radians(hourAngle));
-    line(0, 0, 0, -hourLength);
-        push();
-            translate(0, -hourLength + 20);
-            ellipse(0, 0, 15, 15);
-        pop();
+        strokeWeight(hourWidth);
+        stroke(255, 204, 0); // Gold color for hours hand
+        var hourAngle = map(hour() % 12, 0, 12, 0, 360);
+        rotate(hourAngle);
+        line(0, 0, 0, -hourLength);
+    push();
+        translate(0, -hourLength + 20);
+        fill(255, 204, 0); // Gold circle at the tip
+        noStroke();
+        ellipse(0, 0, 15, 15);
+    pop();
     pop();
 
+    // Draw hour markers (Roman)
+    stroke(255);
+    strokeWeight(3);
     var hours = 12;
     var hourStep = 360 / hours;
-    for (var i=0; i<hours; i++)
-        {
-            push();
-                rotate(radians(hourStep * i));
-                translate(0, -155);
-                line(0, 0, 0, -20);
-            pop();
-        };
-
+    textAlign(CENTER, CENTER);
+    textSize(28);
+    fill(255);
+    noStroke();
+    
+    for (var i = 0; i < hours; i++) {
+        push();
+        rotate(hourStep * i);
+        translate(0, -135); // Adjust the position for Roman numerals closer to the inner edge
+        text(romanNumerals[i], 0, 0); // Draw numerals
+        pop();
+    }
 }
