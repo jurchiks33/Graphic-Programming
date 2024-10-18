@@ -35,11 +35,11 @@ function draw()
     line(0, 0, 0, -minLenght);
     pop();
 
-        //minutes
-        push();
-        strokeWeight(minWidth);
-        var minAngle = map(minute(), 0, 60, 0, 360);
-        rotate(radians(minAngle));
-        line(0, 0, 0, -minLenght);
-        pop();
+    //minutes
+    push();
+    strokeWeight(hourWidth);
+    var hourAngle = map(hour(), 0, 12, 0, 360);
+    rotate(radians(hourAngle));
+    line(0, 0, 0, -hourLength);
+    pop();
 }
