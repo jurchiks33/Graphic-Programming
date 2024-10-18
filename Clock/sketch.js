@@ -5,7 +5,5 @@ function setup() {
 
 function draw() {
     background(0);
-    fill(255);
-    ellipse(width/2, height/2, 50, 50); //  mouse x and y for following to the mouse instead of the fixed parameters
-    rect(mouseX, mouseY, 100, 100);
+
 }
