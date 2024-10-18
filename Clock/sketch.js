@@ -5,36 +5,48 @@ var minWidth = 3;
 var hourLength = 90;
 var hourWidth = 5;
 
+var romanNumerals = ["XII", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI"];
 
 function setup() 
 {
     createCanvas(900, 600);
-    background(0);
+    angleMode(DEGREES); // for better angle handling we will use DEGREES
 }
 
 function draw() 
 {
-    background(255);
-    translate(width/2, height/2);
+    background(50);
+    translate(width / 2, height / 2);
+
+    // gradient background for watch surface
+    drawGradienCircle(0, 0, 350, color(100, 100, 200), color(0, 0, 50));
+
+    // Outer circle for watch
+    stroke(200);
+    strokeWeight(8);
+    noFill();
     ellipse(0, 0, 350, 350);
 
     // seconds
     push();
         strokeWeight(secWidth);
-        stroke(200, 0, 0);
+        stroke(255, 0, 0);
         var secAngle = map(second(), 0, 60, 0, 360);
-        rotate(radians(secAngle));
+        rotate(secAngle);
         line(0, 0, 0, -secLength);
     pop();
 
     //minutes
     push();
         strokeWeight(minWidth);
+        stroke(255, 255, 255);
         var minAngle = map(minute(), 0, 60, 0, 360);
-        rotate(radians(minAngle));
+        rotate(minAngle);
         line(0, 0, 0, -minLenght);
     push();
         translate(0, -minLenght + 20);
+        fill(255, 255, 255)
+        noStroke();
         ellipse(0, 0, 15, 15);
     pop();
     pop();
