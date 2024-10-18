@@ -79,8 +79,20 @@ function draw()
     for (var i = 0; i < hours; i++) {
         push();
         rotate(hourStep * i);
-        translate(0, -135); // Adjust the position for Roman numerals closer to the inner edge
+        translate(0, -145); // Adjust the position for Roman numerals closer to the inner edge
         text(romanNumerals[i], 0, 0); // Draw numerals
         pop();
     }
+}
+
+// function to draw radial circle
+function drawGradienCircle(x, y, d, innerColor, outerColor) 
+{
+    for (let r = d; r > 0; r -= 1) 
+        {
+            let inter = map(r, 0, d, 0, 1);
+            let c = lerpColor(innerColor, outerColor, inter);
+            stroke(c);
+            ellipse(x, y, r, r);
+        }
 }
