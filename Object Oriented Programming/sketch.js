@@ -48,11 +48,12 @@ class Button
         fill(glossyColor);
         rect(this.locX, this.locY, this.w, this.h / 2, 20, 20, 0, 0);
 
-        if (this.state==true) 
+        // glow around the button
+        if (this.state) 
             {
-                fill(255);
+                this.glowIntensity = lerp(this.glowIntensity, 20, 0.2);
             } else {
-                fill(0);
+                this.glowIntensity = lerp(this.glowIntensity, 0, 0.2);
             }
         
             rect(this.locX, this.locY, this.w, this.h);
