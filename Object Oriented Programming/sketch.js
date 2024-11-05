@@ -56,6 +56,9 @@ class Button
                 this.glowIntensity = lerp(this.glowIntensity, 0, 0.2);
             }
         
+            stroke(0, 150, 255, this.glowIntensity * 5);    //adjustable glow
+            strokeWeight(this.glowIntensity);
+            noFill();
             rect(this.locX, this.locY, this.w, this.h);
     }
 
