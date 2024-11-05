@@ -1,21 +1,18 @@
-
+var button;
 
 function setup() {
     createCanvas(900, 600);
+    button = new Button();
 }
 
 function draw() {
     background(125);
-
+    button.draw();
 
 }
 
 function mousePressed() {
-    if (mouseX > locX && mouseX < locX + w && 
-        mouseY > locY && mouseY < locY + h)
-        {
-            state = !state;
-        }
+    button.flick(mouseX, mouseY);
 }
 
 class Button 
@@ -31,13 +28,21 @@ class Button
 
     draw() 
     {
-        if (state==true) 
+        if (this.state==true) 
             {
                 fill(255);
             } else {
                 fill(0);
             }
         
-            rect(locX, locY, w, h);
+            rect(this.locX, this.locY, this.w, this.h);
+    }
+
+    flick(x, y) {
+        if (x > this.locX && x < this.locX + this.w && 
+            y > this.locY && y < this.locY + this.h)
+            {
+                this.state = !this.state;
+            }
     }
 }
