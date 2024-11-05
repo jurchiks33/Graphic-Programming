@@ -20,3 +20,11 @@ function draw() {
 
     rect(locX, locY, w, h);
 }
+
+function mousePressed() {
+    if (mouseX > locX && mouseX < locX + w && 
+        mouseY > locY && mouseY < locY + h)
+        {
+            state = !state;
+        }
+}
