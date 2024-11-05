@@ -1,8 +1,4 @@
-var state = false;
-var locX = 200;
-var locY = 200;
-var w = 200;
-var h = 100;
+
 
 function setup() {
     createCanvas(900, 600);
@@ -11,14 +7,7 @@ function setup() {
 function draw() {
     background(125);
 
-    if (state==true) 
-    {
-        fill(255);
-    } else {
-        fill(0);
-    }
 
-    rect(locX, locY, w, h);
 }
 
 function mousePressed() {
@@ -27,4 +16,28 @@ function mousePressed() {
         {
             state = !state;
         }
+}
+
+class Button 
+{
+    constructor() 
+    {
+        this.state = false;
+        this.locX = 200;
+        this.locY = 200;
+        this.w = 200;
+        this.h = 100;
+    }
+
+    draw() 
+    {
+        if (state==true) 
+            {
+                fill(255);
+            } else {
+                fill(0);
+            }
+        
+            rect(locX, locY, w, h);
+    }
 }
