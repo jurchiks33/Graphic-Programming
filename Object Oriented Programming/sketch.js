@@ -43,6 +43,11 @@ class Button
         let baseColor = this.state ? color(0, 150, 250) : color(100, 100, 100);
         let glossyColor = this.state ? color(0, 200, 255, 150) : color(255, 255, 255, 80);
 
+        fill(baseColor);
+        rect(this.locX, this.locY, this.w, this.h, 20);
+        fill(glossyColor);
+        rect(this.locX, this.locY, this.w, this.h / 2, 20, 20, 0, 0);
+
         if (this.state==true) 
             {
                 fill(255);
