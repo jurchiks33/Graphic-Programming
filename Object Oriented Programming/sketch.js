@@ -1,29 +1,33 @@
 var button;
+var button2;
 
 function setup() {
     createCanvas(900, 600);
-    button = new Button();
+    button = new Button(200, 200, 200, 100);
+    button2 = new Button(100, 100, 50, 50);
 }
 
 function draw() {
     background(125);
     button.draw();
+    button2.draw();
 
 }
 
 function mousePressed() {
     button.flick(mouseX, mouseY);
+    button2.flick(mouseX, mouseY);
 }
 
 class Button 
 {
-    constructor() 
+    constructor(locX, locY, w, h) 
     {
         this.state = false;
-        this.locX = 200;
-        this.locY = 200;
-        this.w = 200;
-        this.h = 100;
+        this.locX = locX;
+        this.locY = locY;
+        this.w = w;
+        this.h = h;
     }
 
     draw() 
