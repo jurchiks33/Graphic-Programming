@@ -9,6 +9,7 @@ function setup()
 function draw() 
 {
     background(0);
+    ball.draw();
 }
 
 class Ball 
@@ -20,4 +21,11 @@ class Ball
         this.locX = random(width);
         this.locY = random(height);
     }
+
+    draw()
+    {
+        fill(125);
+        ellipse(this.locX, this.locY, 40, 40);
+    }
+
 }
