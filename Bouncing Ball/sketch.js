@@ -58,7 +58,15 @@ class Comet
         this.trail = [];
         this.trailLength = 20;
     }
-    
+
+    reset()
+    {
+        //comet starting at the random left position
+        this.position = createVector(random(-width, -100), random(height / 2));
+        this.velocity = createVector(random(5, 8), random(-2, 2));
+        this.size = random(10, 15);
+        this.opacity = 255;
+    }
 }
 
 // var ball;
