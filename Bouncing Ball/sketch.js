@@ -19,8 +19,35 @@ function setup()
             }
         );
     }
+
+    // initialization of multiple balls
+    for ( let i = 0; i < 10; i++)
+    {
+        balls.push(new ball())
+    }
 }
 
+// drawing stars with twinkling effect
+function drawStars()
+{
+    background(10, 10, 30);
+    noStroke();
+    for (let star of stars)
+    {
+        fill(255, 255, 255, star.brightness);
+        ellipse(star.x, star.y, 2, 2);
+
+        //star brightness
+        star.brightness += star.speed * (star.targetBrightness > star.brightness ? 1 : -1);
+
+        // switching directions when brightness reaches maximum and switch to other target
+        if(abs(star.brightness - star.targetBrightness) < 5) 
+        {
+            star.targetBrightness = random(50, 255);
+            star.speed = random(2, 6);
+        }
+    }
+}
 
 // var ball;
 
