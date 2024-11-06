@@ -9,7 +9,7 @@ function setup()
 function draw() 
 {
     background(0);
-    ball.draw();
+    ball.run();
 }
 
 class Ball 
@@ -22,10 +22,24 @@ class Ball
         this.locY = random(height);
     }
 
+    // run function for the ball
+    run() 
+    {
+        this.draw();
+        this.move();
+    }
+
     draw()
     {
         fill(125);
         ellipse(this.locX, this.locY, 40, 40);
+    }
+
+    // function to move the ball
+    move()
+    {
+        this.locX += this.speedX;
+        this.locY += this.speedY;
     }
 
 }
