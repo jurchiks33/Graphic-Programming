@@ -27,6 +27,7 @@ class Ball
     {
         this.draw();
         this.move();
+        this.bounce();
     }
 
     draw()
@@ -40,6 +41,12 @@ class Ball
     {
         this.locX += this.speedX;
         this.locY += this.speedY;
+    }
+
+    bounce() 
+    {
+        if (this.locX < 0 || this.locX > width) this.speedX *= -1;
+        if (this.locY < 0 || this.locY > width) this.speedY *= -1;
     }
 
 }
