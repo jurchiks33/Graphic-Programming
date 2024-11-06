@@ -49,6 +49,18 @@ function drawStars()
     }
 }
 
+// comet class with fading trail
+class Comet 
+{
+    constructor()
+    {
+        this.reset();
+        this.trail = [];
+        this.trailLength = 20;
+    }
+    
+}
+
 // var ball;
 
 // function setup() 
