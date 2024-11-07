@@ -143,6 +143,14 @@ class Ball
         this.bounce();
     }
 
+    //drawing balls with colors and different sizes
+    drawBall()
+    {
+       fill(this.color);
+       noStroke();
+       let oscillateSize = this.size + sin(frameCount * 0.1) * 5;
+       ellipse(this.location.x, this.location.y, oscillateSize, oscillateSize);
+    }
     
 }
 
