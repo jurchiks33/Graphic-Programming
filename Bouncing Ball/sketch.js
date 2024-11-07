@@ -132,6 +132,18 @@ class Ball
         this.trail = [];
         this.trailLength = int(random(5, 15));
     }
+
+    //main function for each ball
+    run()
+    {
+        this.updateTrail();
+        this.drawTrail();
+        this.drawBall();
+        this.move();
+        this.bounce();
+    }
+
+    
 }
 
 // var ball;
