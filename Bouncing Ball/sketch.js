@@ -67,6 +67,24 @@ class Comet
         this.size = random(10, 15);
         this.opacity = 255;
     }
+
+    run() 
+    {
+        this.updateTrail();
+        this.drawTrail();
+        this.move();
+    }
+
+    // trail for the comet position
+    updateTrail() {
+        this.trail.push (
+            {
+                position: this.position.copy(),
+                opacity: this.opacity
+            }
+        );
+        
+    }
 }
 
 // var ball;
