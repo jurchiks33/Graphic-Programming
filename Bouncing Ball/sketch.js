@@ -76,15 +76,21 @@ class Comet
     }
 
     // trail for the comet position
-    updateTrail() {
-        this.trail.push (
-            {
+    updateTrail() 
+    {
+        this.trail.push 
+            ({
                 position: this.position.copy(),
                 opacity: this.opacity
+            });
+            if (this.trail.length > this.trailLength)
+            {
+                this.trail.shift();
             }
-        );
-        
     }
+
+    //drawing comet and its trail
+    
 }
 
 // var ball;
