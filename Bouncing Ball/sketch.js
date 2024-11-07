@@ -100,8 +100,27 @@ class Comet
             fill(255, 255, 255, trailOpacity);
             ellipse(trailPos.x, trailPos.y, this.size * 0.5, this.size * 0.5);
         }
+
+        //drawing comet
+        fill(255, 255, 255, this.opacity);
+        ellipse(this.position.x, this.position.y, this.size, this.size);
+    }
+
+    // comet movement and reset of the screen.
+    move()
+    {
+        this.position.add(this.velocity);
+        this.opacity -= 2;
+
+        //reset of the comet of the screen
+        if (this.position.x > width + 100 || this.opacity <= 0)
+        {
+            this.reset();
+        }
     }
 }
+
+
 
 // var ball;
 
