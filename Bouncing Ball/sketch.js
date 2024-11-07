@@ -120,7 +120,19 @@ class Comet
     }
 }
 
-
+// clas for each ball properties and behavior
+class Ball
+{
+    constructor()
+    {
+        this.velocity = createVector(random(-3, 3), random(-3, 3));
+        this.location = createVector(random(width), random(height));
+        this.size = random(20, 50);
+        this.color = color(random(255), random(255), random(255));
+        this.trail = [];
+        this.trailLength = int(random(5, 15));
+    }
+}
 
 // var ball;
 
