@@ -90,7 +90,17 @@ class Comet
     }
 
     //drawing comet and its trail
-    
+    drawTrail()
+    {
+        // comets trail
+        for (let i = 0; i < this.trail.length; i++)
+        {
+            let trailPos = this.trail[i].position;
+            let trailOpacity = map(i, 0, this.trail.length, 0, this.trail[i].opacity);
+            fill(255, 255, 255, trailOpacity);
+            ellipse(trailPos.x, trailPos.y, this.size * 0.5, this.size * 0.5);
+        }
+    }
 }
 
 // var ball;
