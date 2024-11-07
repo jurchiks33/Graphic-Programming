@@ -151,6 +151,21 @@ class Ball
        let oscillateSize = this.size + sin(frameCount * 0.1) * 5;
        ellipse(this.location.x, this.location.y, oscillateSize, oscillateSize);
     }
+
+    // function to add curent location to the trail
+    updateTrail()
+    {
+        this.trail.push 
+        ({
+            position: this.location.copy(),
+            color: this.color
+        });
+        if (this.trail.length > this.trailLength)
+        {
+            this.trail.shift()
+        }
+    }
+
     
 }
 
