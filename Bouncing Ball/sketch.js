@@ -21,7 +21,7 @@ function setup()
     }
 
     // initialization of multiple balls
-    for ( let i = 0; i < 10; i++)
+    for ( let i = 0; i < 50; i++)
     {
         balls.push(new Ball())
     }
@@ -147,7 +147,7 @@ class Ball
         this.size = random(20, 50);
         this.color = color(random(255), random(255), random(255));
         this.trail = [];
-        this.trailLength = int(random(5, 15));
+        this.trailLength = int(random(5, 50));
     }
 
     //main function for each ball
