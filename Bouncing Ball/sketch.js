@@ -23,7 +23,24 @@ function setup()
     // initialization of multiple balls
     for ( let i = 0; i < 10; i++)
     {
-        balls.push(new ball())
+        balls.push(new Ball())
+    }
+
+    // Initialize a comet with random starting properties
+    comet = new Comet();
+}
+
+function draw() 
+{
+    // Draw twinkling starry background
+    drawStars();
+
+    // Run the comet
+    comet.run();
+
+    // Run each ball in the array
+    for (let ball of balls) {
+        ball.run();
     }
 }
 
