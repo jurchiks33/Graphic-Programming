@@ -177,6 +177,12 @@ class Ball
             ellipse(pos.x, pos.y, this.size * 0.6, this.size * 0.6);
         }
     }
+
+    // move ball based on velocity
+    move()
+    {
+        this.location.add(this.velocity);
+    }
     
 }
 
