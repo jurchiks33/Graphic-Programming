@@ -166,6 +166,17 @@ class Ball
         }
     }
 
+    // drawing trail behind the ball
+    drawTrail()
+    {
+        for (let i = 0; i < this.trail.length; i++)
+        {
+            let pos = this.trail[i].position;
+            let col = this.trail[i].color;
+            fill(col.levels[0], col.levels[1], col.levels[2], map(i, 0, this.trail.length, 0, 100));
+            ellipse(pos.x, pos.y, this.size * 0.6, this.size * 0.6);
+        }
+    }
     
 }
 
