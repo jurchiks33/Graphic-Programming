@@ -184,6 +184,12 @@ class Ball
         this.location.add(this.velocity);
     }
     
+    bounce() 
+    {
+        if (this.location.x < 0 || this.location.x > width) this.velocity.x *= -1;
+        if (this.location.y < 0 || this.location.y > height) this.velocity.y *= -1;
+    }
+
 }
 
 // var ball;
