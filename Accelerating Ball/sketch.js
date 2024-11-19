@@ -76,6 +76,13 @@ class Ball
         this.velocity.add(this.acceleration);
         this.velocity.limit(this.maxVelocity);
         this.location.add(this.velocity);
+    
+
+    //randomly adjusted acceleration.
+    if (random(1) < 0.02)
+        {
+            this.acceleration = createVector(random(-0.05, 0.05), random(-0.05, 0.05));
+        }
     }
 
     edges() 
