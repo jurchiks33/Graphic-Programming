@@ -56,8 +56,18 @@ class Ball
 
     draw()
     {
-        fill(125);
-        ellipse(this.location.x, this.location.y, 40, 40);
+        //drawing trail
+        noStroke();
+        for (let i = 0; i < this.trail.length; i++)
+        {
+            let t = this.trail[i];
+            fill(red(this.color), 
+                 green(this.color), 
+                 blue(this.color), 
+                 255 - (i * 15));
+            ellipse(t.x, t.y, this.ballSize * 0.8 - (i * 2));
+                
+        }
     }
 
     // function to move the ball
