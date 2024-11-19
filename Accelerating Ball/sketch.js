@@ -19,6 +19,18 @@ function draw()
     }
 }
 
+// gradient background
+function drawGradientBackground()
+{
+    for (let i = 0; i < height; i++)
+    {
+        let gradienColor = lerpColor(color(20, 30, 60), color(5, 0, 40), i / height);
+        stroke(gradienColor);
+        line(0, i, width, i);
+    }
+}
+
+
 class Ball 
 {
     constructor()
