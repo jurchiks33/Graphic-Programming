@@ -30,15 +30,20 @@ function drawGradientBackground()
     }
 }
 
-
 class Ball 
 {
     constructor()
     {
-        this.velocity = new createVector(0, 0);
-        this.location = new createVector(0, height/2);
-        this.acceleration = new createVector(0.03, 0);
-        this.maxVelocity = 10;
+        this.velocity = createVector(random(-3, 3), random(-3, 3));
+        this.location = createVector(random(width), random(height));
+        this.acceleration = createVector(random(-0.02, 0.02), random(-0.2, 0.2));
+        this.maxVelocity = random(4, 15);
+        this.ballSize = random(20, 80);
+        this.color = color(random(50, 255),
+                           random(50, 255),
+                           random(50, 255));
+        this.trail = [];
+        this.trailLimit = 15;
     }
 
     // run function for the ball
