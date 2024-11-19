@@ -1,15 +1,22 @@
-var ball;
+let balls = [];
+let numBalls = 10;
 
 function setup() 
 {
     createCanvas(900, 600);
-    ball = new Ball;
+    for (let i = 0; i < numBalls; i++)
+    {
+        balls.push(new Ball());
+    }
 }
 
 function draw() 
 {
-    background(0);
-    ball.run();
+    drawGradientBackground();
+    for (let ball of balls)
+    {
+        ball.run();
+    }
 }
 
 class Ball 
@@ -19,6 +26,7 @@ class Ball
         this.velocity = new createVector(0, 0);
         this.location = new createVector(0, height/2);
         this.acceleration = new createVector(0.03, 0);
+        this.maxVelocity = 10;
     }
 
     // run function for the ball
@@ -39,6 +47,7 @@ class Ball
     move()
     {
         this.velocity.add(this.acceleration);
+        this.velocity.limit(this.maxVelocity);
         this.location.add(this.velocity);
     }
 
