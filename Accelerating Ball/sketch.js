@@ -1,5 +1,5 @@
 let balls = [];
-let numBalls = 10;
+let numBalls = 15;
 
 function setup() 
 {
@@ -24,7 +24,8 @@ function drawGradientBackground()
 {
     for (let i = 0; i < height; i++)
     {
-        let gradientColor = lerpColor(color(20, 30, 60), color(5, 0, 40), i / height);
+        let gradientColor = lerpColor(color(20, 30, 60), 
+                                      color(5, 0, 40), i / height);
         stroke(gradientColor);
         line(0, i, width, i);
     }
@@ -34,14 +35,19 @@ class Ball
 {
     constructor()
     {
-        this.velocity = createVector(random(-3, 3), random(-3, 3));
-        this.location = createVector(random(width), random(height));
-        this.acceleration = createVector(random(-0.02, 0.02), random(-0.02, 0.02));
+        this.velocity = createVector(random(-3, 3), 
+                                     random(-3, 3));
+        this.location = createVector(random(width), 
+                                     random(height));
+        this.acceleration = createVector(random(-0.02, 0.02), 
+                                         random(-0.02, 0.02));
         this.maxVelocity = random(4, 8);
-        this.ballSize = random(20, 50);
-        this.color = color(random(100, 255), random(100, 255), random(100, 255));
+        this.ballSize = random(10, 50);
+        this.color = color(random(50, 255), 
+                           random(50, 255), 
+                           random(50, 255));
         this.trail = [];
-        this.trailLimit = 15;
+        this.trailLimit = 25;
     }
 
     // run function for the ball
@@ -89,8 +95,8 @@ class Ball
         // randomly adjusted acceleration
         if (random(1) < 0.02)
         {
-            this.acceleration = createVector(random(-0.05, 0.05), 
-                                             random(-0.05, 0.05));
+            this.acceleration = createVector(random(-0.05, 0.15), 
+                                             random(-0.05, 0.15));
         }
     }
 
