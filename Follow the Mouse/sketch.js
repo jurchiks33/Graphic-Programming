@@ -33,8 +33,11 @@ class Ball
         this.velocity = new createVector(0, 0);
         this.acceleration = new createVector(0, 0);
 
+        // maximum velocity
+        this.maxVelocity = random(5, 10);
 
-        this.maxVelocity = 10;
+        // random color for ball trails
+        this.color = color(random(50, 255), random(50, 255), random(50, 255));
     }
 
     // run function for the ball
