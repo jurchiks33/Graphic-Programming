@@ -3,12 +3,12 @@ var ball;
 function setup() 
 {
     createCanvas(900, 600);
+    background(0);
     ball = new Ball;
 }
 
 function draw() 
 {
-    background(0);
     ball.run();
 }
 
@@ -18,6 +18,7 @@ class Ball
     {
         this.velocity = new createVector(0, 0);
         this.location = new createVector(width/2, height/2);
+        this.prevLocation = new createVector(width/2, height/2);
         this.acceleration = new createVector(0, 0);
         this.maxVelocity = 10;
     }
@@ -32,8 +33,10 @@ class Ball
 
     draw()
     {
-        fill(125);
-        ellipse(this.location.x, this.location.y, 40, 40);
+        stroke(255);
+        strokeWeight(2);
+        line(this.location.x, this.location.y, this.prevLocation.x, this.prevLocation.y);
+        this.prevLocation = this.location.copy();
     }
 
     // function to move the ball
