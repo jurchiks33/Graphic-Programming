@@ -23,10 +23,17 @@ class Ball
 {
     constructor()
     {
+        // random starting position for a ball
+        let randomX = width / 2 + random(-100, 100);
+        let randomY = height / 2 + random(-100, 100);
+        this.location = new createVector(randomX, randomY);
+        this.prevLocation = new createVector(randomX, randomY);
+
+        // initial velocity and acceleration
         this.velocity = new createVector(0, 0);
-        this.location = new createVector(width/2, height/2);
-        this.prevLocation = new createVector(width/2, height/2);
         this.acceleration = new createVector(0, 0);
+
+
         this.maxVelocity = 10;
     }
 
