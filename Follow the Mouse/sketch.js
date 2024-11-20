@@ -1,15 +1,22 @@
-var ball;
+let ball;
+let numBalls = 10;
 
 function setup() 
 {
     createCanvas(900, 600);
     background(0);
-    ball = new Ball;
+    for (let i = 0; i < numBalls; i++)
+    {
+        balls.push(new Ball());
+    }
 }
 
 function draw() 
 {
-    ball.run();
+    for (let ball of balls)
+    {
+        ball.run();
+    }
 }
 
 class Ball 
