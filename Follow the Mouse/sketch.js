@@ -45,14 +45,16 @@ class Ball
     {
         this.draw();
         this.move();
-        this.edges();
     }
 
     draw()
     {
-        stroke(255);
+        // draw for the trail
+        stroke(this.color);
         strokeWeight(2);
         line(this.location.x, this.location.y, this.prevLocation.x, this.prevLocation.y);
+
+        // updating previous location
         this.prevLocation = this.location.copy();
     }
 
