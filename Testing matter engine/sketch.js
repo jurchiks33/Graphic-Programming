@@ -19,11 +19,11 @@ function setup() {
   // create a box and a ground
   box1 = Bodies.rectangle(200, 200, 80, 80, {restitution:.8, friction: .5});
 
-  var options = {isStatic: true, angle: Math.PI * 0.06};
-  ground = Bodies.rectangle(400, 500, 810, 10, options);
+  ground1 = Bodies.rectangle(100, 200, 500, 10, {isStatic: true, angle: Math.PI * 0.08});
+  ground2 = Bodies.rectangle(500, 500, 500, 10, {isStatic: true, angle: Math.PI * -0.08});
 
   // add all of the bodies to the world
-  World.add(engine.world, [box1, ground]);
+  World.add(engine.world, [box1, ground1, ground2]);
 }
 
 function draw(){
@@ -35,7 +35,8 @@ function draw(){
     drawVertices(box1.vertices);
 
     fill(125);
-    drawVertices(ground.vertices);
+    drawVertices(ground1.vertices);
+    drawVertices(ground2.vertices);
 }
 
 function drawVertices(vertices) {
