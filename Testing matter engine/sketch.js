@@ -31,21 +31,11 @@ function draw(){
 
     Engine.update(engine);
 
-    rectMode(CENTER);
-    push();
     fill(255);
-    var pos = box1.position;
-    translate(pos.x, pos.y);
-    rotate(box1.angle);
-    rect(0, 0, 80, 80);
-    pop();
+    drawVertices(box1.vertices);
 
-    push();
     fill(125);
-    translate(ground.position.x, ground.position.y);
-    rotate(ground.angle);
-    rect(0, 0, 810, 10);
-    pop();
+    drawVertices(ground.vertices);
 }
 
 function drawVertices(vertices) {
