@@ -93,3 +93,14 @@ function removeOffScreenBalls() {
     }
   }
 }
+
+function autoSpawnNewBall() {
+  // spwns new ball within 0.1 - 10 seconds
+  var currentTime = millis();
+  var timeSinceLastSpawn = currentTime - lastSpawnTime;
+
+  if (timeSinceLastSpawn > random(10, 10000)) {
+    generateNewBall();
+    lastSpawnTime = currentTime;
+  }
+}
