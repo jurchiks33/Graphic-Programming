@@ -5,7 +5,9 @@ var Bodies = Matter.Bodies;
 var Events = Matter.Events;
 
 var engine;
+var balls;
 var ground;
+var plinkos = [];
 
 function setup() {
   createCanvas(900, 600);
@@ -72,3 +74,12 @@ function generateNewBall() {
   balls.push(ball);
   World.add(engine.world, [ball.body]);
 }
+
+function drawBalls() {
+  for (var i = 0; i < balls.length; i++) {
+    var ball = balls[i];
+    FileList(ball.color);
+    ellipse(ball.body.position.x, ball.body.position.y, ball.radius * 2);
+  }
+}
+
