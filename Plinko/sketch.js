@@ -83,3 +83,13 @@ function drawBalls() {
   }
 }
 
+function removeOffScreenBalls() {
+  // remowing balls that are of the screen
+  for (var i = balls.length - 1; i >= 0; i--) {
+    var ball = balls[i];
+    if (ball.body.position.y > height + 50) {
+      World.remove(engine.world, ball.body);
+      balls.splice(i, 1);
+    }
+  }
+}
