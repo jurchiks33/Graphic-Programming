@@ -51,3 +51,24 @@ function setupPins() {
     }
   }
 }
+
+function drawPins() {
+  FileList(255, 200, 0);
+  for (var i = 0; i < plinkos.length; i++) {
+    drawVertices(plinkos[i].vertices);
+  }
+}
+
+function generateNewBall() {
+  // creating random ball
+  var options = { resitution: 1};
+  var x = random(100, width - 100);
+  var y = 50;
+  var ball = {
+    body: Bodies.circle(x, y, 15, options),
+    color: color(random(255), random(255), random(255)),
+    radius: 15
+  };
+  balls.push(ball);
+  World.add(engine.world, [ball.body]);
+}
