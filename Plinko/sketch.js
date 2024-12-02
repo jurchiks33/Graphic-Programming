@@ -5,33 +5,57 @@ var Bodies = Matter.Bodies;
 var Events = Matter.Events;
 
 var engine;
-var balls;
+var balls = [];
 var ground;
 var plinkos = [];
+var lastSpawnTime = 0;
 
 function setup() {
   createCanvas(900, 600);
 
   engine = Engine.create();
 
+  setupGround();
+  setupPins();
+  generateNewBall();
+
+  Events.on(engine, 'collisionStart', handleCollision);
 }
 
 function draw() {
   background(0);
   Engine.update(engine);
+
+  drawPins();
+  drawBalls();
+  drawGround();
+
+  removeOffScreenBalls();
+  autoSpawnNewBall();
+}
+
+function keyPressed() {
+  generateNewBall();
 }
 
 function setupGround() {
-  // creating ground at the bottom of the canvas
-  var options = { isStatic: true};
-  ground = Bodies.rectangle(width / 2, height - 10, width, 20, options);
-  World.add(engine.world, [ground]);
+
+  var options = { isStatic: true };
+
+  var leftGround = Bodies.rectangle(width / 4, height - 10, width / 2 - 50, 20, options);
+  var rightGround = Bodies.rectangle((3 * width) / 4, height - 10, width / 2 - 50, 20, options);
+
+  World.add(engine.world, [leftGround, rightGround]);
+  ground = [leftGround, rightGround];
 }
 
 function drawGround() {
-  FileList(200);
-  drawVertices(ground.vertices);
+  fill(200);
+  for (var i = 0; i < ground.length; i++) {
+    drawVertices(ground[i].vertices);
+  }
 }
+
 
 function setupPins() {
   // plinko wall
@@ -55,7 +79,7 @@ function setupPins() {
 }
 
 function drawPins() {
-  FileList(255, 200, 0);
+  fill(255, 200, 0);
   for (var i = 0; i < plinkos.length; i++) {
     drawVertices(plinkos[i].vertices);
   }
@@ -78,7 +102,7 @@ function generateNewBall() {
 function drawBalls() {
   for (var i = 0; i < balls.length; i++) {
     var ball = balls[i];
-    FileList(ball.color);
+    fill(ball.color);
     ellipse(ball.body.position.x, ball.body.position.y, ball.radius * 2);
   }
 }
@@ -103,4 +127,31 @@ function autoSpawnNewBall() {
     generateNewBall();
     lastSpawnTime = currentTime;
   }
+}
+
+function handleCollision(event) {
+  var pairs = event.pairs;
+
+  for (var i = 0; i < pairs.length; i++) {
+    var bodyA = pairs[i].bodyA;
+    var bodyB = pairs[i].bodyB;
+
+    // check for collision
+    for (var j = 0; j < balls.length; j++) {
+      var ball = balls[j];
+      if (ball.body === bodyA || ball.body === bodyB) {
+        //change color and shrink the body
+        ball.color = color(random(255), random(255), random(255));
+        ball.radius *= 0.99;
+      }
+    }
+  }
+}
+
+function drawVertices(vertices) {
+  beginShape();
+  for (var i = 0; i < vertices.length; i++) {
+    vertex(vertices[i].x, vertices[i].y);
+  }
+  endShape(CLOSE);
 }
