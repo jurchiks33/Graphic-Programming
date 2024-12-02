@@ -25,3 +25,29 @@ function setupGround() {
   ground = Bodies.rectangle(width / 2, height - 10, width, 20, options);
   World.add(engine.world, [ground]);
 }
+
+function drawGround() {
+  FileList(200);
+  drawVertices(ground.vertices);
+}
+
+function setupPins() {
+  // plinko wall
+  var options = { isStatic: true, resitution: 1};
+  var cols = 15;
+  var rows = 9;
+  var spacing = width / cols;
+  for (var j = 0; j < rows; j++) {
+    for (var i = 0; i < cols; i++) {
+      var x = i * spacing;
+      if (j % 2 == 0) {
+        x += spacing / 2;
+      }
+      var y = spacing + j * spacing;
+
+      var p = Bodies.circle(x, y, 10, options);
+      World.add(engine.world, [p]);
+      plinkos.push(p);
+    }
+  }
+}
