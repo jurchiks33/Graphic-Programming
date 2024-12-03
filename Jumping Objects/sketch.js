@@ -20,7 +20,15 @@ function setup() {
     isStatic: true
   });
 
+  // addingg ground to the world
+  World.add(engine.World, [ground]);
 
+  // adding objects with dynamic behavior.
+  addJumpyObject(700, 100, 6, 30, "red", {x: 700, y: 50}) //Hexagon Red
+  addJumpyObject(300, 300, 5, 40, "blue", {x: 400, y: 100}) //Pentagon Blue
+  addJumpyObject(500, 150, 4, 50, "green", {x: 450, y: 100}) //square Green
+  addJumpyObject(200, 100, 8, 25, "purple", {x: 250, y: 50}) //Octagon Purple
+  addJumpyObject(600, 50, 3, 35, "yellow", {x: 650, y: 100}) //Triangle Yellow
 }
 
 
