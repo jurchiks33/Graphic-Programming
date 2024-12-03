@@ -50,66 +50,25 @@ function setup() {
   World.add(engine.world, mouseConstraint);
 }
 
+function draw() {
+  background(30, 30, 50);
+  Engine.update(engine);
+
+  // drawing all objects and constraints
+  for (let obj of objects) {
+    fill(obj.color);
+    drawVertices(obj.body.vertices);
+    if (obj.constraint) {
+      stroke(255);
+      strokeWeight(2);
+      drawConstraint(obj.constraint);
+    }
+  }
+
+  
+}
 
 
-//   // Polygon 1 with a constraint
-//   poly1A = Bodies.polygon(700, 100, 6, 20);
-//   poly1B = Bodies.polygon(700, 250, 3, 50); // Fixed the incorrect '1' in the polygon sides
-//   constraint1 = Constraint.create({
-//     bodyA: poly1A,
-//     pointA: {x: 0, y: 0},
-//     bodyB: poly1B,
-//     pointB: {x: -10, y: -10},
-//     stiffness: 0.01
-//   });
-
-//   // Polygon 2 with a constraint
-//   poly2 = Bodies.polygon(300, 200, 5, 40);
-//   constraint2 = Constraint.create({
-//     pointA: {x: 150, y: 50},
-//     bodyB: poly2,
-//     pointB: {x: -10, y: -10},
-//     stiffness: 0.01
-//   });
-
-//   // Additional Polygon 3
-//   poly3 = Bodies.polygon(500, 150, 4, 30);
-//   constraint3 = Constraint.create({
-//     bodyA: poly3,
-//     pointA: {x: 0, y: 0},
-//     pointB: {x: 500, y: 100},
-//     stiffness: 0.02
-//   });
-
-//   // Additional Polygon 4
-//   poly4 = Bodies.polygon(200, 100, 8, 25);
-//   constraint4 = Constraint.create({
-//     bodyA: poly4,
-//     pointA: {x: 0, y: 0},
-//     bodyB: poly3,
-//     pointB: {x: 10, y: 10},
-//     stiffness: 0.03
-//   });
-
-//   // Create the ground
-//   ground = Bodies.rectangle(width / 2, height - 20, 800, 10, {
-//     isStatic: true
-//   });
-
-//   // Add all bodies and constraints to the world
-//   World.add(engine.world, [
-//     ground,
-//     poly1A,
-//     poly1B,
-//     constraint1,
-//     poly2,
-//     constraint2,
-//     poly3,
-//     constraint3,
-//     poly4,
-//     constraint4
-//   ]);
-// }
 
 // function draw() {
 //   background(0);
