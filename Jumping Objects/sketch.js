@@ -82,3 +82,25 @@ function draw() {
   }
 }
 
+// function for a jumpy objects
+function addJumpyObject(x, y, sides, color, constraintPoint = null) {
+  let body = Bodies.polygon(x, y, sides, radius, {restitution: 0.8});
+  let constraint = null;
+
+  // ad constraint if point is provided
+  if (constraintPoint) {
+    constraint = Constraint.create({
+      bodyA: body,
+      pointA: {x: 0, y: 0},
+      pointB: constraintPoint,
+      stiffness: 0.02,
+      damping: 0.01
+    });
+    World.add(engine.world, [body, constraint]);
+  } else {
+    World.add(engine.world, [body]);
+  }
+
+  // storing objects
+  objects.push({body, constraint, color});
+}
