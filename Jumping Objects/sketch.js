@@ -29,6 +29,25 @@ function setup() {
   addJumpyObject(500, 150, 4, 50, "green", {x: 450, y: 100}) //square Green
   addJumpyObject(200, 100, 8, 25, "purple", {x: 250, y: 50}) //Octagon Purple
   addJumpyObject(600, 50, 3, 35, "yellow", {x: 650, y: 100}) //Triangle Yellow
+
+  // adding spiral constraints
+  addSpiralConstraint(400, 300, 100, 6, 0.3);
+  addSpiralConstraint(200, 200, 80, 8, 0.02);
+
+  // adding mouse interaction
+  let canvasMouse = Mouse.create(canvas.elt);
+  canvasMouse.pixelRatio = pixelDensity();
+  mouseConstraint = MouseConstraint.create(engine, {
+    mouse: canvasMouse,
+    constraint: {
+      stiffness: 0.2,
+      render: {
+        visible: false
+      }
+    }
+  });
+
+  World.add(engine.world, mouseConstraint);
 }
 
 
