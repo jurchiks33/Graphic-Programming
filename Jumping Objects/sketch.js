@@ -9,23 +9,21 @@ var engine;
 var ground;
 
 
+function setup() {
+  createCanvas(800, 600);
 
-// var constraint1;
-// var poly1A;
-// var poly1B;
+  //creating engine
+  engine = Engine.create();
 
-// var poly2;
-// var constraint2;
+  //creating ground
+  ground = Bodies.rectangle(width / 2, height - 20, 800, 10, {
+    isStatic: true
+  });
 
-// // Additional polygons and constraints
-// var poly3, constraint3;
-// var poly4, constraint4;
 
-// function setup() {
-//   createCanvas(800, 600);
+}
 
-//   // create an engine
-//   engine = Engine.create();
+
 
 //   // Polygon 1 with a constraint
 //   poly1A = Bodies.polygon(700, 100, 6, 20);
