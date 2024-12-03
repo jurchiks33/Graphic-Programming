@@ -65,52 +65,20 @@ function draw() {
     }
   }
 
-  
+  // drawing spiral constraints
+  for (let spiral of spiralContraints) {
+    drawSpiral(spiral);
+  }
+
+  // drawing ground
+  fill(100);
+  drawVertices(ground.vertices);
+
+  // display mouse interaction
+  if (mouseConstraint.body) {
+    fill(255, 0, 0, 150);
+    let pos = mouseConstraint.body.position;
+    ellipse(pos.x, pos.y, 20, 20);
+  }
 }
 
-
-
-// function draw() {
-//   background(0);
-//   Engine.update(engine);
-
-//   fill(255);
-//   drawVertices(poly1A.vertices);
-//   drawVertices(poly1B.vertices);
-//   drawVertices(poly2.vertices);
-//   drawVertices(poly3.vertices);
-//   drawVertices(poly4.vertices);
-
-//   stroke(128);
-//   strokeWeight(3);
-//   drawConstraint(constraint1);
-//   drawConstraint(constraint2);
-//   drawConstraint(constraint3);
-//   drawConstraint(constraint4);
-
-//   fill(128);
-//   drawVertices(ground.vertices);
-// }
-
-// // HELPER FUNCTIONS
-// function drawVertices(vertices) {
-//   beginShape();
-//   for (var i = 0; i < vertices.length; i++) {
-//     vertex(vertices[i].x, vertices[i].y);
-//   }
-//   endShape(CLOSE);
-// }
-
-// function drawConstraint(constraint) {
-//   var offsetA = constraint.pointA || {x: 0, y: 0};
-//   var posA = constraint.bodyA ? constraint.bodyA.position : {x: 0, y: 0};
-//   var offsetB = constraint.pointB || {x: 0, y: 0};
-//   var posB = constraint.bodyB ? constraint.bodyB.position : {x: 0, y: 0};
-
-//   line(
-//     posA.x + offsetA.x,
-//     posA.y + offsetA.y,
-//     posB.x + offsetB.x,
-//     posB.y + offsetB.y
-//   );
-// }
