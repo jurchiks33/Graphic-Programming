@@ -9,6 +9,10 @@ function draw() {
 
     // adding dynamic light
     directionalLight(250, 250, 250, -1, -1, -1);
+    pointLight(255, 0, 150, mouseX - width / 2, mouseY - height / 2, 200);
+
+    rotateY(frameCount * 0.5);
+    translate(200 * sin(frameCount * 0.01), 0, 200 * cos(frameCount * 0.01));
 
     rectMode(CENTER);
     rotateY(frameCount);
