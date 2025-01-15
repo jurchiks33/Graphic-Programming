@@ -1,10 +1,20 @@
 function setup() {
     createCanvas(900, 600, WEBGL);
-    background(0);
+    angleMode(DEGREES);
+    noStroke();
 }
 
 function draw() {
-    background(125);
+    background(30, 30, 70);
 
-    ellipse(0, 0, 30, 30);
+    // adding dynamic light
+    directionalLight(250, 250, 250, -1, -1, -1);
+
+    rectMode(CENTER);
+    rotateY(frameCount);
+    translate(200, 0, 0);
+    rotateX(frameCount);
+    rotateY(frameCount);
+    rotateZ(frameCount);
+    box(200);
 }
